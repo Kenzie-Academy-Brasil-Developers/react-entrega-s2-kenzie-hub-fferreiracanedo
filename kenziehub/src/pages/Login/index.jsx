@@ -84,9 +84,8 @@ const Login = ({ authenticated, setAuthenticated }) => {
           <Image src={LogoHub}></Image>
         </Box>
       </Flex>
-      <Flex justifyContent="center">
+      <Flex width="95%" justifyContent="center">
         <Flex
-          width="95%"
           bgColor="gray.3"
           flexDirection="column"
           justifyContent="center"
@@ -95,6 +94,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
           padding=" 42px 22px"
           marginBottom="55.3px"
           marginTop="42px"
+          marginLeft="12px"
         >
           <Text fontSize="16px" fontWeight="bold">
             Login
