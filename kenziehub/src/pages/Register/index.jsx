@@ -79,16 +79,22 @@ const Register = ({ authenticated }) => {
     <Flex marginTop="30px" justifyContent="center">
       <Flex flexDir="column" justifyContent="center">
         <Box display="flex" justifyContent="space-between">
-          <Image width="100px" src={LogoHub}></Image>
-          <Button bgColor="gray.2" width="67.49px" height="32px">
+          <Image marginLeft="12px" width="100px" src={LogoHub}></Image>
+          <Button
+            marginRight="12px"
+            bgColor="gray.2"
+            width="67.49px"
+            height="32px"
+            colorScheme="gray.2"
+          >
             Sair
           </Button>
         </Box>
 
         <Flex
-          width="100%"
+          width="95%"
           maxW="370px"
-          maxH="107vh"
+          maxH="1107vh"
           bgColor="gray.3"
           flexDirection="column"
           justifyContent="center"
@@ -97,6 +103,7 @@ const Register = ({ authenticated }) => {
           padding=" 42px 22px"
           marginBottom="55.3px"
           marginTop="50px"
+          marginLeft="10px"
         >
           <Text marginTop="22px" fontSize="16px">
             Crie sua conta
@@ -109,6 +116,7 @@ const Register = ({ authenticated }) => {
                   Nome
                 </FormLabel>
                 <Input
+                  width="95%"
                   color="white"
                   placeholder="Digite seu nome"
                   {...register('name')}
@@ -126,6 +134,7 @@ const Register = ({ authenticated }) => {
                   Email
                 </FormLabel>
                 <Input
+                  width="95%"
                   color="white"
                   placeholder="Digite seu Email"
                   {...register('email')}
@@ -146,6 +155,7 @@ const Register = ({ authenticated }) => {
                   Senha
                 </FormLabel>
                 <Input
+                  width="95%"
                   color="white"
                   placeholder="Digite sua Senha"
                   {...register('password')}
@@ -164,6 +174,7 @@ const Register = ({ authenticated }) => {
                   Confirme a Senha
                 </FormLabel>
                 <Input
+                  width="95%"
                   color="white"
                   placeholder="Confirme sua Senha"
                   {...register('confirmPassword')}
@@ -182,13 +193,15 @@ const Register = ({ authenticated }) => {
                 isInvalid={errors.confirmPassword?.message}
               >
                 <Select
+                  width="95%"
+                  marginLeft="5px"
                   placeholder="Escolha seu módulo"
                   {...register('course_module')}
                 >
-                  <option value="Módulo 1 (FrontEnd - Básico)">
+                  <option width="95%" value="Módulo 1 (FrontEnd - Básico)">
                     Módulo 1 (FrontEnd - Básico)
                   </option>
-                  <option value="Módulo 1 (FrontEnd - Avançado)">
+                  <option width="95%" value="Módulo 1 (FrontEnd - Avançado)">
                     Módulo 2 (FrontEnd - Avançado)
                   </option>
                 </Select>
@@ -203,6 +216,17 @@ const Register = ({ authenticated }) => {
                 type="submit"
               >
                 Cadastrar
+              </Button>
+              <Button
+                color="white"
+                bgColor="gray"
+                width="100%"
+                maxW="65.2vw"
+                maxH="7.2vh"
+                marginTop="20.21px"
+                onClick={() => history.push('/login')}
+              >
+                Login
               </Button>
             </form>
           </Text>

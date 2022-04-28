@@ -7,21 +7,18 @@ import CardInfo from '../CardInfo';
 
 const CardTech = () => {
   const [tech, setTech] = useState([]);
-  console.log(tech);
 
   useEffect(() => {
-    Api.get(`/users/${localStorage.getItem('@KenzieHub:user_id')}`)
+    Api.get(`/users/${JSON.parse(localStorage.getItem('@KenzieHub:user_id'))}`)
       .then(response => {
         setTech(response.data.techs);
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   }, []);
   return (
     <Flex justifyContent="center" alignContent="center" width="100%">
       <Flex
-        width="100%"
+        width="95%"
         flexDir="column"
         marginTop="42px"
         backgroundColor="gray.3"

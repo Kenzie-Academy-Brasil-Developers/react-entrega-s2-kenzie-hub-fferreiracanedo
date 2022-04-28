@@ -10,11 +10,11 @@ const InfoUser = () => {
       borderBottom="1px solid #212529"
     >
       <Box width="100%" display="flex" flexDir="row" justifyContent="center">
-        <Text fontWeight="bold" color="white" marginRight="60%">
-          Olá, {localStorage.getItem('@kenzieHub :user')}
+        <Text fontWeight="bold" color="white" marginRight="40%">
+          Olá, {JSON.parse(localStorage.getItem('@kenzieHub :user'))}
         </Text>
         <Text fontSize="12px" color="gray">
-          {localStorage.getItem('@kenzieHub :module')}
+          {JSON.parse(localStorage.getItem('@kenzieHub :module'))}
         </Text>
       </Box>
     </Flex>

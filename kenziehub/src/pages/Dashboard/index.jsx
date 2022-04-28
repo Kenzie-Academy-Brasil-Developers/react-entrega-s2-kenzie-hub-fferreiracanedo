@@ -5,13 +5,13 @@ import Header from '../../components/Header';
 import InfoUser from '../../components/InfoUser';
 import Techs from '../../components/Techs';
 
-const Dashboard = ({ authenticated }) => {
+const Dashboard = ({ authenticated, setAuthenticated }) => {
   if (!authenticated) {
-    <Redirect to="/login" />;
+    return <Redirect to="/login" />;
   }
   return (
     <Flex flexDir="column">
-      <Header />
+      <Header setAuthenticated={setAuthenticated} />
       <Flex justifyContent="center" width="100%" flexDir="column">
         <InfoUser />
         <Techs />

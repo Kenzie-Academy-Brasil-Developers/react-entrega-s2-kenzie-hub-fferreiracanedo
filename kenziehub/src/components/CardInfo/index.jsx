@@ -42,7 +42,9 @@ const CardInfo = ({ index, title, status, icon, id }) => {
   const deleteTech = id => {
     Api.delete(`/users/techs/${id}`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('@KenzieHub :token')}`,
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem('@KenzieHub :token')
+        )}`,
       },
     })
       .then(res => {
@@ -58,10 +60,11 @@ const CardInfo = ({ index, title, status, icon, id }) => {
   };
 
   const updateTech = data => {
-    console.log(data);
     Api.put(`/users/techs/${id}`, data, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('@KenzieHub :token')}`,
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem('@KenzieHub :token')
+        )}`,
       },
     })
       .then(res => {
@@ -97,9 +100,9 @@ const CardInfo = ({ index, title, status, icon, id }) => {
         <Text>{status}</Text>
         <ViewIcon onClick={onOpen}></ViewIcon>
 
-        <Modal width="100%" isOpen={isOpen} onClose={onClose}>
+        <Modal width="95%" isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent maxW="350px">
+          <ModalContent bgColor="gray.3" paddingBottom="12px" width="95%">
             <ModalHeader bgColor="gray.2" textAlign="center">
               Tecnologia Detalhes
             </ModalHeader>
@@ -109,15 +112,16 @@ const CardInfo = ({ index, title, status, icon, id }) => {
               display="flex"
               justifyContent="center"
               alignItems="center"
+              colorScheme="gray.3"
             >
               <form onSubmit={handleSubmit(updateTech)}>
                 <FormControl>
                   <FormLabel>Nome do projeto</FormLabel>
-                  <Input placeholder={title} />
+                  <Input width="95%" placeholder={title} />
                 </FormControl>
-                <FormControl>
+                <FormControl marginTop="10px">
                   <FormLabel>Status</FormLabel>
-                  <Select {...register('status')}>
+                  <Select width="95%" {...register('status')}>
                     <option>Iniciante</option>
                     <option>Intermediário</option>
                     <option>Avançado</option>
@@ -131,11 +135,12 @@ const CardInfo = ({ index, title, status, icon, id }) => {
                 >
                   <Button
                     bgColor="colorPrimary.negative"
-                    width="204px"
+                    width="125%"
                     height="48px"
                     marginRight="22px"
                     type="submit"
                     marginTop="20px"
+                    colorScheme="colorPrimary.negative"
                   >
                     Salvar Alterações
                   </Button>
@@ -143,8 +148,9 @@ const CardInfo = ({ index, title, status, icon, id }) => {
                     marginTop="20px"
                     onClick={() => deleteTech(id)}
                     bgColor="gray.1"
-                    width="98px"
+                    width="95%"
                     height="48px"
+                    colorScheme="gray.1"
                   >
                     Excluir
                   </Button>

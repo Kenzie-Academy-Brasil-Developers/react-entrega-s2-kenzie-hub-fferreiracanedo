@@ -46,7 +46,9 @@ const Techs = () => {
     const data = { title, status };
     Api.post('/users/techs', data, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('@KenzieHub :token')}`,
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem('@KenzieHub :token')
+        )}`,
       },
     })
       .then(_ => {
@@ -63,7 +65,7 @@ const Techs = () => {
     <Flex width="100%" flexDir="row" justifyContent="space-between">
       <Box width="100%" display="flex" justifyContent="center">
         <Text
-          marginRight="60%"
+          marginRight="40%"
           marginTop="20px"
           fontWeight="500"
           fontSize="16px"
@@ -80,10 +82,11 @@ const Techs = () => {
         >
           +
         </Button>
+
         <Modal width="369px" height="342px" isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent height="292px">
-            <ModalHeader borderRadius="4px" bgColor="gray.2" textAlign="center">
+          <ModalContent width="95%" height="292px">
+            <ModalHeader bgColor="gray.2" textAlign="center">
               Cadastrar Tecnologia
             </ModalHeader>
             <ModalCloseButton />
@@ -100,7 +103,7 @@ const Techs = () => {
                     Nome
                   </FormLabel>
                   <Input
-                    width="324px"
+                    width="95%"
                     placeholder="Digite o nome da tecnologia"
                     {...register('title')}
                   />
@@ -109,7 +112,7 @@ const Techs = () => {
                   <FormLabel fontSize="12px" htmlFor="name">
                     Selecionar Status
                   </FormLabel>
-                  <Select {...register('status')} width="324px">
+                  <Select {...register('status')} width="95%">
                     <option>Iniciante</option>
                     <option>Intermediário</option>
                     <option>Avançado</option>
@@ -118,7 +121,6 @@ const Techs = () => {
               </form>
             </ModalBody>
             <ModalFooter
-              borderRadius="4px"
               bgColor="gray.3"
               display="flex"
               width="100%"
@@ -130,7 +132,6 @@ const Techs = () => {
                 height="48px"
                 padding="0px 22px 0px 22px"
                 border="1.2px solid colorPrimary.1"
-                borderRadius="4px"
                 bgColor="colorPrimary.1"
                 mr={3}
                 onClick={handleSubmit(sendTech)}

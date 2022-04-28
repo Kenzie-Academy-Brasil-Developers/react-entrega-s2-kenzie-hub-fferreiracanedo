@@ -2,13 +2,15 @@ import { Flex, Image, Button } from '@chakra-ui/react';
 import LogoKenzieHub from '../../assets/LogoHub.svg';
 import { useHistory } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ setAuthenticated }) => {
   const history = useHistory();
 
   const btnExit = () => {
-    history.push('/login');
     localStorage.clear();
+    setAuthenticated(false);
+    return history.push('/login');
   };
+
   return (
     <Flex
       backgroundColor="#121214"
@@ -27,6 +29,7 @@ const Header = () => {
         bgColor="gray.3"
         onClick={btnExit}
         marginRight="20px"
+        colorScheme="gray.3"
       >
         Sair
       </Button>

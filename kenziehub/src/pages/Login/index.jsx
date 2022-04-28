@@ -46,11 +46,21 @@ const Login = ({ authenticated, setAuthenticated }) => {
     Api.post('/sessions', data)
       .then(_ => {
         toast.success('Login Efetuado com sucesso!');
-        localStorage.setItem('@KenzieHub:token', _.data.token);
-        localStorage.setItem('@kenzieHub :user', _.data.user.name);
-        localStorage.setItem('@kenzieHub :module', _.data.user.course_module);
+        localStorage.setItem('@KenzieHub :token', JSON.stringify(_.data.token));
+        localStorage.setItem(
+          '@kenzieHub :user',
+          JSON.stringify(_.data.user.name)
+        );
+        localStorage.setItem(
+          '@kenzieHub :module',
+          JSON.stringify(_.data.user.course_module)
+        );
 
-        localStorage.setItem('@KenzieHub:user_id', _.data.user.id);
+        localStorage.setItem(
+          '@KenzieHub:user_id',
+          JSON.stringify(_.data.user.id)
+        );
+
         setAuthenticated(true);
 
         history.push('/dashboard');
@@ -67,7 +77,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
       <Flex width="100%" justifyContent="space-between">
         <Box
           marginTop="77px"
-          width="100%"
+          width="95%"
           display="flex"
           justifyContent="center"
         >
@@ -76,9 +86,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
       </Flex>
       <Flex justifyContent="center">
         <Flex
-          width="100%"
-          maxW="370px"
-          maxH="107vh"
+          width="95%"
           bgColor="gray.3"
           flexDirection="column"
           justifyContent="center"
@@ -88,13 +96,16 @@ const Login = ({ authenticated, setAuthenticated }) => {
           marginBottom="55.3px"
           marginTop="42px"
         >
-          <Text fontSize="16px">Login</Text>
+          <Text fontSize="16px" fontWeight="bold">
+            Login
+          </Text>
           <form onSubmit={handleSubmit(subs)}>
             <FormControl marginTop="19px" isInvalid={errors.email?.message}>
               <FormLabel fontSize="12px" color="white">
                 Email
               </FormLabel>
               <Input
+                width="95%"
                 color="white"
                 placeholder="Digite seu Email"
                 {...register('email')}
@@ -112,6 +123,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
                 Senha
               </FormLabel>
               <Input
+                width="95%"
                 color="white"
                 placeholder="Digite sua Senha"
                 {...register('password')}
@@ -128,14 +140,36 @@ const Login = ({ authenticated, setAuthenticated }) => {
             <Button
               color="white"
               bgColor="colorPrimary.1"
-              width="100%"
-              maxW="65.2vw"
+              width="95%"
               maxH="7.2vh"
               marginTop="20.21px"
               type="submit"
+              colorScheme="colorPrimary.1"
             >
               Login
             </Button>
+            <Box display="flex" flexDir="row">
+              <Text
+                color="gray"
+                width="70%"
+                marginLeft="10px"
+                marginTop="50px"
+                fontSize="15px"
+                fontWeight="bold"
+              >
+                Não tem login?
+              </Text>
+              <Button
+                color="white"
+                bgColor="gray"
+                width="160px"
+                maxH="7.2vh"
+                marginTop="40px"
+                onClick={() => history.push('/register')}
+              >
+                Cadastre-se
+              </Button>
+            </Box>
           </form>
         </Flex>
       </Flex>
