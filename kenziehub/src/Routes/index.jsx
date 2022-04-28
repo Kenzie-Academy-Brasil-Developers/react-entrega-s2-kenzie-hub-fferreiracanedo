@@ -17,7 +17,7 @@ const Routes = () => {
 
   return (
     <Switch>
-      <Route exact path="/register">
+      <Route exact path="/">
         <Register authenticated={authenticated} />
       </Route>
 

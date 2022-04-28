@@ -165,7 +165,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
                 width="160px"
                 maxH="7.2vh"
                 marginTop="40px"
-                onClick={() => history.push('/register')}
+                onClick={() => history.push('/')}
               >
                 Cadastre-se
               </Button>
